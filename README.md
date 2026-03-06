@@ -1,28 +1,49 @@
-# -Lab-Results-Diagnostic-Report-IVR-G1--Modernization-IVR-Framework-
-A streamlined approach to Conversational IVR Modernization Framework. Built with a focus on clear documentation, performance, and open-source accessibility.
+# Lab Results & Diagnostic Report IVR — Modernization Framework
 
-# 🏥 LabResults AI: Humanizing Diagnostic Retrieval
+A conversational IVR framework to deliver lab results and diagnostic reports via voice and messaging. This repository contains the backend components, documentation, and example configuration used in the Lab Results & Diagnostic Report IVR project.
 
-This is a project born out of a simple realization: hospital staff are way too busy to be answering "Are my results ready?" calls all day, and patients shouldn't have to navigate robotic, "Press 1 for help" menus. 
+## Quick summary
+- Natural-language phone interaction to authenticate callers and summarize lab results.
+- Optional delivery of full reports via SMS/WhatsApp or email.
+- Built with Python, FastAPI, Twilio (voice/SMS), and Postgres-compatible storage (Supabase).
 
-I'm bridging the gap between old-school hospital databases and modern AI to make getting your health reports as easy as having a quick chat.
+## Quickstart
+1. Clone the repository:
 
-## 🌟 What’s the Big Idea?
-Imagine calling your hospital, speaking naturally, and having an AI assistant actually understand you. No keypads, no waiting.
-* **Talk to it:** Just say your name or PID.
-* **Get the gist:** The AI checks the database and gives you a simple, human summary of your results. 
-* **Instant Delivery:** It automatically sends the full PDF to your WhatsApp or Email so you have it immediately. 
+```powershell
+git clone git@github.com:1209nikhil/Lab-Results-Diagnostic-Report-IVR--G1-Modernization-IVR-Framework-.git
+cd Lab-IVR
+```
 
-## 🛠️ The "Trial & Error" Tech Stack
-I haven't locked in the final tools yet because I want to see what works best! I’m currently experimenting with:
-* **The Brain:** n8n, Make, or Zapier (to handle the logic and automation). 🧠
-* **The Voice:** Twilio, Azure Communication Services (ACS), or BAP (to handle the actual calling). 📞
-* **The Memory:** Direct integration with the Hospital Information System (HIS).
+2. Install backend dependencies:
 
-## 📂 Project Assets
-Want to see the deep dive? 
-* [Check out the Full Project Plan (PDF)](./your-plan-file-name-here.pdf) 📄
-* This project is licensed under the **MIT License**.
+```powershell
+pip install -r "Backend IVR/requirements.txt"
+```
+
+3. Configure environment variables:
+- Copy `Lab-IVR/Backend IVR/.env.example` → `Lab-IVR/Backend IVR/.env` and set your Twilio and Supabase credentials.
+
+4. Run the backend (example):
+
+```powershell
+cd "Lab-IVR/Backend IVR"
+uvicorn backend_ivr:app --reload --port 8000
+# or use your preferred method (docker/ngrok/etc.)
+```
+
+5. Expose the webhook to Twilio (ngrok) and configure your Twilio phone number to use the `/voice` webhook.
+
+## Structure
+- `Lab-IVR/Backend IVR/` — backend code, requirements, and configuration examples.
+- `Lab-IVR/` — documentation and assets, including the license.
+
+## Contributing
+Feel free to open issues or PRs. If you plan to modify the IVR flow or add integrations, include tests or a short runbook explaining the changes.
+
+## License
+This project is provided under the MIT License — see `LICENSE` for details.
 
 ---
-*Built with ❤️ to make healthcare a little less stressful.*
+
+Built with ❤️ to make healthcare better.
